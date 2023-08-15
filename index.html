@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+    crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <header>
   <nav class="v-app-bar navbar fixed-top">
@@ -20,140 +26,183 @@
     </div>
   </nav>
 </header>
-<body class="v-app-body container-fluid">
-
-    <div class="row justify-content-center">
-      <div class="col col-11">
-        <h1>Submitting to Consortium Screens</h1>
-        <div class="row">
-          <div class="col-md-6 col-xs-12 col-sm-12">
-            <strong>Submission window</strong><br>
-            <span class="light">Monday, September 11 - Friday, September 29</h3>
-          </div>
-          <div class="col-md-6 col-xs-12 col-sm-12">
-            <strong>Next screen</strong><br>
-            <span class="light">January 2024 | Spring 2024</span>
-          </div>
+<body class="v-app-body">
+  <section class="bkg-blue">
+    <div class="container py-5">
+      <div class="row py-4">
+        <div class="col col-8 col-lg-8 col-md-8 col-sm-12">
+          <h1 class="py-4">Submitting to PRISM Consortium Screens</h1>
+          <h2>Submission information</h2>
+          <p>This submission window will include multiple screens. In addition to our DMSO (MTS and CPS) screens, we are excited to announce we are now offering Aqueous screening of antibody-drug conjugates and growth-inhibiting cytokines.</p>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <h2>Start your submission</h2>
-            <p>If you are submitting to multiple screens, you must complete the appropriate form for each.</p>
-  
-            <div class="my-5 accordion" id="ScreensAccordion">
-              <div class="accordion-item">
-                <div class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    <strong>DMSO (MTS/CPS)</strong><span class="px-2 light"> Single agent, Combination</span>
-                  </button>
+      </div>
+
+      <div class="row py-4">
+        <div class="col col-8 col-lg-8 col-md-8 col-sm-12">
+          <h4>Screens</h4>
+              <p><span class="badge badge-blue">DMSO</span> MTS (single agents)</p>
+              <p><span class="badge badge-blue">DMSO</span> CPS (combination of single agents)</p>
+              <p><span class="badge badge-blue">AQUEOUS</span>   <span class="badge badge-green">NEW</span> APS (antibodies, ADCS, growth-inhibiting cytokines, aqueous test agents)</p>
+        </div>
+        <div class="col col-4 col-lg-4 col-md-4 col-sm-12">
+          <h4>Submission window</h4>
+          <h3>Monday, September 11 - <br>Friday, September 29 at 12pm</h3>
+        </div>  
+      </div>
+    </div>
+  </section>
+<section>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col col-8 col-lg-8 col-md-8 col-sm-12">
+        <h2>Start your submission</h2>
+
+        <div class="alert alert-danger mb-5" role="alert">
+          <small><b>ATTENTION: </b></small> Submission instructions and forms are slightly different for each screen, so please complete the appropriate form for your submission(s).
+        </div>
+
+        <h4>Select screen</h4>
+        <select class="screen-select2">
+          <option value="dmso">DMSO (MTS and CPS)</option>
+          <option value="aqueous">AQUEOUS (APS)</option>
+        </select>
+        <div class="my-3">
+          <div id="dmso-tab">
+            <div class="card my-2">
+              <div class="card-body">
+                  <h3><span class="badge badge-green">1</span> Review documents</h3>
+                <div class="m-4">
+                  <p><b>Test agent handling workflow: </b>ensure your test agent is compatible with our screening process.</p>
+                  <a href="">DMSO test agent handling workflow - 2023</a>
                 </div>
-                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#ScreensAccordion">
-                  <div class="accordion-body">
-                    <div class="my-4">
-                      <h4><i class="bi bi-1-circle"> </i> Test-agent Handling Workflow</h4>
-                      <p>Review our workflow to ensure your test-agent is compatible with our screening process.</p>
-                      <a href="">DMSO test-agent Handling Workflow - 2023</a>
-                    </div>
-                    <div class="my-4">
-                      <h4><i class="bi bi-2-circle"> </i> Submission Instructions</h4>
-                      <p>Review our submission instructions to ensure your test-agent is properly prepared, documented, and shipped.</p>
-                      <a href="">MTS023 + CPS009 Submission instructions</a>
-                    </div>
-                    <div class="my-4">
-                      <h4><i class="bi bi-3-circle"> </i> Submission Form  <span class="new-badge">AVAILABLE 9/11</span></h4>
-                      <p>If you are submitting to multiple screens, you must complete the appropriate form for each.</p>
-                      <a class="btn btn-outline my-2" href="">MTS023 Submission Form (Single agent) <i class="bi bi-box-arrow-up-right"></i></a>
-                      <a class="btn btn-outline my-2" href="">CPS009 Submission Form (Combination)  <i class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <div class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <strong>Aqueous (APS) <span class="new-badge">NEW</span></strong> 
-                    <span class="px-2 light">Antibodies, Antibody-drug conjugates, aqueous small molecules</span>
-                  </button>
-                </div>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#ScreensAccordion">
-                  <div class="accordion-body">
-                    <div class="my-4">
-                      <h4><i class="bi bi-1-circle"> </i> Test-agent Handling Workflow</h4>
-                      <p>Review our workflow to ensure your test-agent is compatible with our screening process.</p>
-                      <a href="">DMSO test-agent Handling Workflow - 2023</a>
-                    </div>
-                    <div class="my-4">
-                      <h4><i class="bi bi-2-circle"> </i> Submission Instructions</h4>
-                      <p>Review our submission instructions to ensure your test-agent is properly prepared, documented, and shipped.</p>
-                      <a href="">MTS023 + CPS009 Submission instructions</a>
-                    </div>
-                    <div class="my-4">
-                      <h4><i class="bi bi-3-circle"> </i> Submission Form  <span class="new-badge">AVAILABLE 9/11</span></h4>
-                      <p>If you are submitting to multiple screens, you must complete the appropriate form for each.</p>
-                      <a class="btn btn-outline my-2" href="">MTS023 Submission Form (Single agent) <i class="bi bi-box-arrow-up-right"></i></a>
-                      <a class="btn btn-outline my-2" href="">CPS009 Submission Form (Combination)  <i class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                  </div>
+                <div class="m-4">
+                  <p><b>Submission instructions: </b>ensure your test agent is properly prepared, documented, and shipped.</p>
+                  <a href="">MTS023 + CPS009 submission instructions</a>
                 </div>
               </div>
             </div>
-          </div>
-  
-          <div class="col-4">
-            <div class="card right-side-panel p-4">
+            <div class="card my-2">
               <div class="card-body">
-                <h6>Submission Requirements</h6>
-                <div class="my-4">
-                  <h5><i class="bi bi-check-circle"></i> Review Documents</h5>
-                  <p>To ensure your test-agent is compatible with and properly prepared for a screen, review our workflow and submission information documents before completing your submission form.</p>
+                <h3><span class="badge badge-green">2</span> Complete submission form(s)</h3>
+                <div class="m-4">
+                  <p>If you are submitting to multiple screens, you must complete and submit the appropriate form for each.</p>
+                  <a href="">MTS023 submission form</a> <span class="p-sm">(single agents)</span><br>
+                  <a href="">CPS009 submission form</a> <span class="p-sm">(combination of single agents)</span>
                 </div>
-                <div class="my-4">
-                  <h5><i class="bi bi-check-circle"></i> Complete Submission Form</h5>
-                  <p>If you are submitting to multiple screens, you must complete the appropriate form for each.</p>
-                </div>
-                <div class="my-4">
-                  <h5><i class="bi bi-check-circle"></i> Provide Funding (if applicable)</h5>
-                  <p>This information will be provided through your submission form.</p>
-                </div>
-                <div class="my-4">
-                  <h5><i class="bi bi-check-circle"></i> Plan your shipment</h5>
-                  <ul>
-                    <li>The PRISM Lab must receive your shipment within the submission window time-frame.</li>
-                    <li>Test-agents received after Fri., 9/29 will be held until the next screen.</li>
-                    <li>All deliveries must be scheduled for weekdays. </li>
-                    <li>Friday deliveries must arrive before 12pm.</li>
-                  </ul>
-                </div>
-                <div class="card">
-                  <div class="card-body info-box">
-                    <h6>International shipping only</h6>
-                    <ul>
-                      <li>Allow at least 7 days lead time.</li>
-                      <li>Before shipping internationally, please contact our customs broker:
-                        <div class="pt-1 contact-information">
-                          Tom Auffrey of E. Sidney Stockwell Co.<br>
-                          Email: tom@esstockwell.com<br>
-                          Ph: +1 339-203-4278<br>
-                          <a>TSCA Form Download</a>
-                        </div>
-                      </li>
-                    </ul>
-    
-                  </div>
-                
-                </div>
-                
               </div>
+            </div>
   
+          </div>
+          <div id="aqueous-tab">
+            <div class="card my-2">
+              <div class="card-body">
+                  <h3><span class="badge badge-green">1</span> Review documents</h3>
+                <div class="m-4">
+                  <p><b>Test agent handling workflow: </b>ensure your test agent is compatible with our screening process.</p>
+                  <a href="">APS test agent handling workflow - 2023</a>
+                </div>
+                <div class="m-4">
+                  <p><b>Submission instructions: </b>ensure your test agent is properly prepared, documented, and shipped.</p>
+                  <a href="">APS submission instructions</a>
+                </div>
+              </div>
+            </div>
+            <div class="card my-2">
+              <div class="card-body">
+                <h3>
+                  <span class="badge pill-badge badge-green">2</span>
+                   Complete submission form(s)</h3>
+                <div class="m-4">
+                  <p>If you are submitting to multiple screens, you must complete and submit the appropriate form for each.</p>
+                  <a href="">APS002 submission form</a> <span class="p-sm">(antibodies, ADCS, growth-inhibiting cytokines, aqueous test agents)</span><br>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="col col-4 col-lg-4 col-md-4 col-sm-12">
+        <h4>Submission requirements</h4>
+        <div class="my-4">
+          <h3><span class="badge badge-green">1</span> Review documents</h3>
+          <p class="p-sm">To ensure your test agent is compatible with and properly prepared for a screen, review our workflow and submission information documents before completing your submission form.</p>
+        </div>
+        <div class="my-4">
+          <h3><span class="badge pill-badge badge-green">2</span> Complete submission form(s)</h3>
+          <p class="p-sm">If you are submitting to multiple screens, you must complete the appropriate form for each.</p>
+        </div>
+        <div class="my-4">
+          <h3><span class="badge pill-badge badge-green">3</span> Provide funding (if applicable)</h3>
+          <p class="p-sm">This information will be provided through your submission form.</p>
+        </div>
+        <div class="my-4">
+          <h3><span class="badge pill-badge badge-green">4</span> Plan your shipment</h3>
+          <ul class="ul-sm">
+            <li>The PRISM Lab must receive your shipment within the submission window time-frame.</li>
+            <li>Test agents received after Friday, 9/29 will be held until the next screen.</li>
+            <li>All deliveries must be scheduled for weekdays.</li>
+            <li>Friday deliveries must arrive before 12pm.</li>
+          </ul>
+
+          <div class="lt-grey-bkg p-4">
+            <h5>International shipping only</h5>
+            <ul class="ul-sm">
+              <li>Allow at least 7 days lead time.</li>
+              <li>Before shipping internationally, please contact our customs broker:
+                <br><br>
+                Tom Auffrey of
+                E. Sidney Stockwell Co.<br>
+                Email: tom@esstockwell.com<br>
+                Ph: +1 339-203-4278<br>
+                TSCA Form Download 
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        
+      </div>
     </div>
   </div>
+
+</section>
+
+
+
+
 </body>
 </html>
 <script>
+  $(document).ready(function() {
+    $('.screen-select2').select2({
+      placeholder: "Select screen",
+      minimumResultsForSearch: -1 // this hides the search bar in menu options
+  
+    });
+    $("#aqueous-tab").hide()
+        $("#dmso-tab").show()
+    $('.screen-select2').on('select2:select', function (e) {
+      if (e.params.data.id == "dmso"){
+        $("#aqueous-tab").hide()
+        $("#dmso-tab").show()
+      } else {
+        $("#aqueous-tab").show()
+        $("#dmso-tab").hide()
+      }
+  // Do something
+  console.log("e", e)
+      var data = e.params.data;
+    console.log(data);
+});
+
+    $('#myTab a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+});
   // to run locally: npx http-server
 </script>
 <style>
@@ -163,7 +212,7 @@
     box-shadow: 0px 2px 1px -1px rgba(200, 200, 200, 0.2), 0px 1px 1px 0px rgba(200, 200, 200, 0.14), 0px 1px 3px 0px rgba(200, 200, 200, 0.12) !important;
   }
   .v-app-body{
-    margin-top:120px;
+    margin-top:64px;
   }
   .v-toolbar__content{
     padding: 4px 16px;
@@ -172,63 +221,87 @@
     position: relative;
     z-index: 0;
 }
-  
+.bkg-blue{
+  background-color: #006db60d;
+}
+  .alert-danger{
+    color:#B12028;
+    background-color:rgb(177, 32, 40, 0.1);
+    border-color:rgb(177, 32, 40. 0.15);
+  }
   body.submission-hub{
   font-family: 'Inter Tight', sans-serif !important;
   color:#282828;
-  font-size: 18px !important;
+  font-size: 24px !important;
   }
 
 h1{
-  font-size:2.6rem;
+  font-size:2.2rem;
   line-height:1.05em;
   font-weight:900;
+
 }
 
-h2{
-  font-size:1.8rem;
-  line-height:1.2em;
-  font-weight:900;
-}
-
-h3, .accordion-header>button{
+h2, .h2{
   font-size:1.4rem;
   line-height:1.2em;
-  font-weight:900;
+  font-weight:600;
+  margin-bottom:16px;
+}
+.p-sm, .ul-sm > li{
+  font-size:.7rem;
+  font-weight:300;
+}
+.light{
+  font-weight:200;
+}
+h3{
+  font-size:1rem;
+  line-height:1.2em;
+  font-weight:500;
 }
 
 h4{
-  font-size:1.2rem;
+  font-size:0.75rem;
   line-height:1.2em;
-  font-weight:600;
+  font-weight:400;
+  color: #006DB6;
+  margin-bottom:16px;
 }
-
 h5{
-  font-size:1rem;
+  font-size:0.75rem;
   line-height:1.2em;
-  font-weight:600;
-}
-h6{
-  font-size:0.85rem;
-  line-height:1.2em;
-  font-weight:700;
-  text-transform:uppercase;
-  color:#8F62C3;
-}
-.info-box>h6{
-  font-size:0.85rem;
-  text-transform:none;
-  color:#757575;
-}
-.info-box>ul>li{
-  font-size:0.85rem;
-  color:#757575;
-}
-.info-box>ul>li>.contact-information{
-  margin-top:8px;
-  color:#757575;
+  font-weight:500;
+  color: black;
+  margin-bottom:16px;
 }
 
+.lt-grey-bkg{
+  background-color:#f4f4f4;
+}
+
+.screen-select2{
+min-width:400px;
+}
+.list-group-item{
+  border:none;
+}
+.badge-primary{
+  color:#7c7c7c;
+  background-color:#ebebeb;
+}
+.badge-blue{
+  color:#006DB6;
+  background-color:#D0E3F0;
+}
+.badge-green{
+  color:#73af36;
+  background-color:#dcebda;
+}
+.badge-red{
+    color:#B12028;
+    background-color:rgb(177, 32, 40, 0.1);
+  }
 
 p{
   font-size:1rem;
@@ -236,60 +309,37 @@ p{
   line-height:1.35em;
   margin-bottom:4px;
 }
-li{
-  font-size:1rem;
-  font-weight:300;
-  line-height:1.35em;
-  margin-bottom:4px;
 
-}
 
-.light{
+/* a{
   font-weight:200;
-}
-
-
-
-a{
-  font-weight:200;
-  text-decoration:none;
-  border-bottom:.5px solid hsl(268, 65%, 50%);
-  color:hsl(268, 65%, 50%) !important;
+  text-decoration:underline;
+  color:#80bc42;
+  font-weight:600;
 }
 
 a:hover{
-  text-decoration:none;
-  color:hsl(268, 65%, 70%) !important;
+  color:#80bc42;
+  cursor: pointer;
+} */
+a{
+  font-weight:200;
+  text-decoration:underline;
+  color:#006DB6;
+  font-weight:300;
+}
+
+a:hover{
+  color:#006DB6;
+  opacity:0.75;
   cursor: pointer;
 }
-.right-side-panel{
+.elevation-1{
   background-color:hsl(0, 0%, 99%);
   box-shadow: 0.5px 0.5px 15px 0px rgba(220, 220, 220, 0.5) !important; 
 }
-.submission-hub-banner{
-  padding:16px;
-  background-color: hsl(268, 65%, 50%);
-}
-.submission-hub-banner >*{
-  color:white !important;
-}
 
-.accordion-button{
-  background-color:hsl(0, 0%, 99%);
-}
- .accordion-button:not(.collapsed){
-    color: #282828;
-    background-color:hsl(0, 0%, 99%);
-}
-.accordion-button:not(.collapsed)::after {
-  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-}
 
-.new-badge{
-  color:#F01D5E;
-  font-size:0.8rem;
-  font-weight:600;
-}
 
 .btn{
   font-weight:700;
@@ -302,3 +352,4 @@ a:hover{
   opacity:0.8;
 }
 </style>
+ 
